@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MyDropLoad</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		html, body, ul, li {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.list li {
+			height:40px;
+			line-height: 40px;
+			padding: 0 15px;
+			border-bottom: 1px solid #eee;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<ul class="list">
+
+	</ul>
+</div>
+<script src="js/dropload.js"></script>
+<script src="data/data.js"></script>
+<script type="text/javascript">
+	const dropload = new Dropload({
+		scrollArea: '.wrap',
+		pullDownAction: function () {
+			console.log('pullDown');
+			setTimeout(function () {
+				console.log('hi');
+				dropload.refresh();
+			}, 1500)
+		},
+		pullUpAction: function () {
+			console.log('pullUp');
+			setTimeout(function () {
+				loadFunc();
+			}, 1500)
+			
+		}
+	});
+</script>
+</body>
+</html>
